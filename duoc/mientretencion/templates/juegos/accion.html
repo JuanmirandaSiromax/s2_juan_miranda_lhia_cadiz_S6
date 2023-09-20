@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <title>Acción</title>
+  <link rel="stylesheet" href="{% static '/CSS/estilo.css' %}">
+
+
+</head>
+
+<body>
+  <nav class="navbar fixed-top bg-transparent">
+    <div class="container-fluid">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><--BUSCAR POR
+          CATEGORÍA</button>
+
+          <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CATEGORÍAS</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"></li>
+                <a href="{% url 'index' %}" class="boton-enlace">INICIO</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'terror' %}" class="boton-enlace">TERROR</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'supervivencia' %}" class="boton-enlace">SUPERVIVENCIA</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'carreras' %}" class="boton-enlace">CARRERAS</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'accion' %}" class="boton-enlace">ACCIÓN</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'aventura' %}" class="boton-enlace">AVENTURA</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'listado_juegos' %}" class="boton-enlace">LISTA DE JUEGOS</a>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-6 ms-auto text-end">
+            <a href="{% url 'sesion' %}" class="boton-enlace">Iniciar Sesión</a>
+            <a href="{% url 'formulario'%}" class="boton-enlace">Registrarse</a>
+          </div>
+    </div>
+  </nav>
+  <header>
+    <div class="header">
+      <br>
+      <br>
+      <img src="{% static '/imagenes/header.png' %}" alt="Inicio">
+    </div>
+  </header>
+  <br>
+  <h1>ACCIÓN</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-6">
+        <div class="card">
+          <img src="{% static '/imagenes/accion2.png' %}" class="card-img-top" alt="Crackdown 3" class="img-fluid">
+          <div class="card-body">
+            <h2 class="card-title">Crackdown 3</h2>
+
+            <p class="card-text">Crackdown 3 era uno de los juegos más esperados de 2017 para los usuarios de Xbox One,
+              pero,
+              finalmente,
+              tendremos que esperar unos meses más para disfrutar de la aventura explosiva en la consola de
+              Microsoft.
+              Hace unos meses, la compañía anunció que retrasaba el lanzamiento de Crackdown 3, inicialmente
+              previsto para
+              el pasado 7 de noviembre, hasta una fecha aún por confirmar de la primavera de 2018. Como es
+              habitual en
+              estos casos, los meses extra de desarrollo permitirán ofrecer una experiencia de mayor calidad a los
+              usuarios y proporcionará a los equipos el tiempo necesario para pulir el juego.
+            </p>
+
+          </div>
+          <h2>Valor del juego $ 10.000</h2>
+          <a href="{% url 'compra' %}" class="boton">Añadir a Carrito</a>
+        </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-6">
+          <div class="card">
+            <img src="{% static '/imagenes/accion.png' %}" class="card-img-top" alt="A Way Out" class="img-fluid">
+            <div class="card-body">
+              <h2 class="card-title">A Way Out</h2>
+
+              <p class="card-text">Presentado de manera oficial durante el E3 2017, A Way Out es lo nuevo de los
+                creadores de Brothers:
+                A Tale
+                of Two Sons. Aunque ya se dejó ver en The Game Awards 2016, el juego de Hazelight se ha convertido
+                en uno de
+                los títulos más esperados del 2018 tras su aparición durante la conferencia de EA en la feria
+                angelina de
+                videojuegos. Tal y como declaró el vicepresidente ejecutivo de la compañía entonces, A Way Out nos
+                sorprenderá gracias a su innovador modo de juego cooperativo y a la forma en la que cuenta una
+                historia
+                emocionante a través de dos personajes. A partir del 23 de marzo podremos disfrutar de él en PS4,
+                Xbox One y
+                PC.
+              </p>
+            </div>
+          </div>
+          <h2>Valor del juego $ 10.000</h2>
+          <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
+
+        </div>
+      </div>
+
+    </div>
+    <footer>
+
+      <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+
+    <title>Supervivencia</title>
+    <link rel="stylesheet" href="{% static '/CSS/estilo.css' %}">
+
+
+</head>
+
+<body>
+  <nav class="navbar fixed-top bg-transparent">
+    <div class="container-fluid">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><--BUSCAR POR
+          CATEGORÍA</button>
+
+          <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CATEGORÍAS</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"></li>
+                <a href="{% url 'index' %}" class="boton-enlace">INICIO</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'terror' %}"class="boton-enlace">TERROR</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'supervivencia' %}" class="boton-enlace">SUPERVIVENCIA</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'carreras' %}" class="boton-enlace">CARRERAS</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'accion' %}" class="boton-enlace">ACCIÓN</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'aventura' %}" class="boton-enlace">AVENTURA</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'listado_juegos' %}" class="boton-enlace">LISTA DE JUEGOS</a>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-6 ms-auto text-end">
+            <a href="{% url 'sesion' %}" class="boton-enlace">Iniciar Sesión</a>
+            <a href="{% url 'formulario'%}" class="boton-enlace">Registrarse</a>
+          </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="header">
+      <br>
+      <br>
+      <img src="{% static '/imagenes/header.png' %}"alt="Inicio">
+    </div>
+  </header>
+
+    <h1>SUPERVIVENCIA</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6">
+                <div class="card">
+                    <img src="{% static '/imagenes/supervivencia1.png' %}" class="card-img-top" alt="Conan Exiles" class="img-fluid">
+                    <div class="card-body">
+                        <h2 class="card-title">Conan Exiles</h2>
+
+                        <p class="card-text">Pocos juegos de supervivencia están ambientados en mundos que derivan de
+                            obras culturales aparecidas en la
+                            literatura o el cine. Uno de ellos es Conan Exiles, la última obra producida por Funcom que
+                            se ha convertido
+                            en todo un éxito comercial. Sobrevive en las tierras de Hyboria controlando a tu avatar en
+                            uno de los mundos
+                            más duros y menos agradecidos con aquellos jugadores que no son capaces de mantener la
+                            intensidad de las
+                            partidas.
+                        </p>
+                        <h2>Valor del juego $ 10.000</h2>
+                        <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-6">
+                <div class="card">
+                    <img src="{% static '/imagenes/supervivencia2.png' %}" class="card-img-top" alt="DayZ" class="img-fluid">
+                    <div class="card-body">
+                        <h2 class="card-title">DayZ</h2>
+
+                        <p class="card-text">De zombis va la cosa con DayZ, uno de los precursores en esto de los juegos
+                            de supervivencia
+                            multijugador en
+                            territorio de infectados. Sus partidas pueden tenernos atrapados durante horas mientras
+                            tratamos de
+                            sobrevivir tanto a los muertos vivientes como a las acciones de otros jugadores. Es un juego
+                            que nos
+                            enseña
+                            a no fiarnos de nadie en el multijugador, una lección que aprendemos rápido cuando llevamos
+                            un par
+                            de horas
+                            jugadas.
+                        </p>
+                        <h2>Valor del juego $ 10.000</h2>
+                        <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+</body>
+
+
+
+</html>
