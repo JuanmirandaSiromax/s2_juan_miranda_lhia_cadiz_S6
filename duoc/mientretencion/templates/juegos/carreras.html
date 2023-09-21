@@ -1,72 +1,12 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+{% block css %}
+{% endblock %}
 
 
+{% block contenido %}
 
-  <title>Carreras</title>
-  <link rel="stylesheet" href="{% static '/CSS/estilo.css' %}">
-
-
-</head>
-
-<body>
-  <br>
-  <nav class="navbar fixed-top bg-transparent">
-    <div class="container-fluid">
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><--BUSCAR POR
-          CATEGORÍA</button>
-
-          <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-            aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">CATEGORÍAS</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"></li>
-                <a href="{% url 'index' %}" class="boton-enlace">INICIO</a>
-                <li class="list-group-item"></li>
-                <a href="{% url 'terror' %}"class="boton-enlace">TERROR</a>
-                <li class="list-group-item"></li>
-                <a href="{% url 'supervivencia' %}" class="boton-enlace">SUPERVIVENCIA</a>
-                <li class="list-group-item"></li>
-                <a href="{% url 'carreras' %}" class="boton-enlace">CARRERAS</a>
-                <li class="list-group-item"></li>
-                <a href="{% url 'accion' %}" class="boton-enlace">ACCIÓN</a>
-                <li class="list-group-item"></li>
-                <a href="{% url 'aventura' %}" class="boton-enlace">AVENTURA</a>
-                <li class="list-group-item"></li>
-                <a href="{% url 'listado_juegos' %}" class="boton-enlace">LISTA DE JUEGOS</a>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-md-6 ms-auto text-end">
-            <a href="{% url 'sesion' %}" class="boton-enlace">Iniciar Sesión</a>
-            <a href="{% url 'formulario'%}" class="boton-enlace">Registrarse</a>
-          </div>
-    </div>
-  </nav>
-  <br>
-  <br>
-  <header>
-    <div class="header">
-      <br>
-      <br>
-      <img src="{% static '/imagenes/header.png' %}" alt="Inicio">
-    </div>
-  </header>
   <br>
   <h1>CARRERAS</h1>
   <br>
@@ -139,6 +79,8 @@
     <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
 
   </footer>
+
+{% endblock %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
     crossorigin="anonymous"></script>
