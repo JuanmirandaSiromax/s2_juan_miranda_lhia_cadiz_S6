@@ -1,67 +1,35 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block css %}
-{% endblock %}
 
 
 {% block contenido %}
-
-    <h1>TERROR</h1>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-6">
-                <div class="card">
-                  <img src="{% static '/imagenes/terror2.png' %}"class="card-img-top" alt="Dead by Daylight" class="img-fluid">
-                    <div class="card-body">
-                        <h2 class="card-title">Dead by Daylight</h2>
-
-                        <p class="card-text">Esta edición de Dead by Daylight te permite acceder a una lista de 7
-                            asesinos (el Trampero, el
-                            Pueblerino, el
-                            Espectro, la Enfermera, la Bruja, la Cazadora y el Doctor) y 9 sobrevivientes (Meg Thomas,
-                            Claudette
-                            Morel,
-                            Jake Park, Dwight Fairfield, Ace Visconti, Nea Karlsson, Bill Overbeck, Feng Min y David
-                            King).
-                            Además
-                            incluye dos accesorios de objetos cosméticos repleto de atuendos para diversos personajes.
-                        </p>
-                        <h2>Valor del juego $ 10.000</h2>
-                        <a href="{% url 'compra' %}" class="boton">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-6">
-                <div class="card">
-                    <img src="{% static '/imagenes/terror1.png' %}"class="card-img-top" alt="Resident Evil" class="img-fluid">
-                    <div class="card-body">
-                        <h2 class="card-title">Resident Evil</h2>
-
-                        <p class="card-text">El primer Resident Evil llegó al mercado en 1996, un título que sentaba las
-                            bases con la historia de
-                            la
-                            empresa Umbrella, el virus T y su apocalipsis zombie para expandirse en 36 juegos en
-                            consolas y
-                            móviles,
-                            seis películas de imagen real, cuatro de animación y decenas de novelas y cómics. Todo desde
-                            una
-                            actualización de un juego de finales de los 80 para la Nintendo de la propia Capcom.
-                        </p>
-                        <h2>Valor del juego $ 10.000</h2>
-                        <a href="{{'compra'}}"  class="boton">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
+<h1>Juegos TERROR</h1>
+<div class="container">
+  <div class="row">
+    
+      {% for juego in juegos_terror %}
+ 
+    
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <a href= "{% url 'juegos_show' id=juego.id %}">
+          <img src="{{ juego.imagen.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title"> {{juego.nombre}} </h2>
+            </a>
+            <p class="card-text">{{ juego.descripcion }}</p>
+          </div>
         </div>
-    </div>
-        <footer>
+      </div>
+    
+  
+      {% endfor %}
+    
+  </div>
+</div>
+<footer>
 
-            <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
+  <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
 
-        </footer>
-
-{% endblock %}        
+</footer>
+{% endblock %}      

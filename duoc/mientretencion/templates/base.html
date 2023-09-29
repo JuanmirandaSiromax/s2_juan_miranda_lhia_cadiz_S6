@@ -10,8 +10,7 @@
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>MI ENTRETENCIÓN</title>
     <link rel="stylesheet" href="{% static '/CSS/estilo.css' %}">
-  {% block css %}
-  {% endblock %}
+
 
 
 
@@ -22,7 +21,6 @@
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><--BUSCAR POR
           CATEGORÍA</button>
-
           <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
             aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
@@ -32,7 +30,7 @@
             <div class="offcanvas-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"></li>
-                <a href="{% url 'index' %}" class="boton-enlace">INICIO</a>
+                <a href="{% url 'principal' %}" class="boton-enlace">INICIO</a>
                 <li class="list-group-item"></li>
                 <a href="{% url 'terror' %}" class="boton-enlace">TERROR</a>
                 <li class="list-group-item"></li>
@@ -43,20 +41,24 @@
                 <a href="{% url 'accion' %}" class="boton-enlace">ACCIÓN</a>
                 <li class="list-group-item"></li>
                 <a href="{% url 'aventura' %}" class="boton-enlace">AVENTURA</a>
+                {%if usuario.userprofile.role == 'admin'%}
                 <li class="list-group-item"></li>
                 <a href="{% url 'listado_juegos' %}" class="boton-enlace">LISTA DE JUEGOS</a>
+                <li class="list-group-item"></li>
+                <a href="{% url 'listado_usuarios' %}" class="boton-enlace">LISTA DE USUARIOS</a>
+                {% endif %}
               </ul>
             </div>
           </div>
-
-          <div class="col-12 col-sm-6 col-md-6 ms-auto text-end">
-            {%if perfil != 'admin'%}
-            <a href="{% url 'sesion' %}" class="boton-enlace">Iniciar Sesión</a>
-            <a href="{% url 'formulario'%}" class="boton-enlace">Registrarse</a>
-            {% endif %}
-          </div>
-    </div>
-  </nav>
+          {% block inicio_sesion %}
+          {% endblock %}
+          {% if request.user.is_authenticated %}
+          <p>Bienvenido, {{ request.user.username }} (<a href="{% url 'logout' %}">Cerrar Sesión</a>)</p>
+          {% else %}
+          <p><a href="{% url 'index' %}">Iniciar Sesión</a></p>
+          {% endif %}
+      </div>
+    </nav>
   <header>
     <div class="header">
       <br>
@@ -78,9 +80,8 @@ crossorigin="anonymous"></script>
 {% block js %}
 {% endblock %}
 
-</body>
+
 {% block footer %}
-
 {% endblock %}
-
+</body>
 </html>

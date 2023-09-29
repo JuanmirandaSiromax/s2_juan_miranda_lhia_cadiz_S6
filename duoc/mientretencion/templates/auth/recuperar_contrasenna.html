@@ -3,6 +3,12 @@
 {% block css %}
 {% endblock %}
 
+{% block inicio_sesion%}
+<br>
+<div class="col-12 col-sm-6 col-md-6 ms-auto text-end">
+  <a href="{% url 'index' %}" class="boton-enlace">volver</a>
+
+{% endblock %}
 
 {% block contenido %}
 <h1>Recuperar Contraseña</h1>

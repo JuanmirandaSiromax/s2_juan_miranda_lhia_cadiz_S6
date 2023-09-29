@@ -1,75 +1,37 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block css %}
-{% endblock %}
+
 
 
 {% block contenido %}
-
-  <br>
-  <h1>ACCIÓN</h1>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-6">
+<h1>Juegos ACCIÓN</h1>
+<div class="container">
+  <div class="row">
+    
+      {% for juego in juegos_accion %}
+ 
+    
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
         <div class="card">
-          <img src="{% static '/imagenes/accion2.png' %}" class="card-img-top" alt="Crackdown 3" class="img-fluid">
+          <a href= "{% url 'juegos_show' id=juego.id %}">
+          <img src="{{ juego.imagen.url }}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h2 class="card-title">Crackdown 3</h2>
-
-            <p class="card-text">Crackdown 3 era uno de los juegos más esperados de 2017 para los usuarios de Xbox One,
-              pero,
-              finalmente,
-              tendremos que esperar unos meses más para disfrutar de la aventura explosiva en la consola de
-              Microsoft.
-              Hace unos meses, la compañía anunció que retrasaba el lanzamiento de Crackdown 3, inicialmente
-              previsto para
-              el pasado 7 de noviembre, hasta una fecha aún por confirmar de la primavera de 2018. Como es
-              habitual en
-              estos casos, los meses extra de desarrollo permitirán ofrecer una experiencia de mayor calidad a los
-              usuarios y proporcionará a los equipos el tiempo necesario para pulir el juego.
-            </p>
+            <h2 class="card-title"> {{juego.nombre}} </h2>
+            </a>
+            <p class="card-text">{{ juego.descripcion }}</p>
 
           </div>
-          <h2>Valor del juego $ 10.000</h2>
-          <a href="{% url 'compra' %}" class="boton">Añadir a Carrito</a>
-        </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-6">
-          <div class="card">
-            <img src="{% static '/imagenes/accion.png' %}" class="card-img-top" alt="A Way Out" class="img-fluid">
-            <div class="card-body">
-              <h2 class="card-title">A Way Out</h2>
-
-              <p class="card-text">Presentado de manera oficial durante el E3 2017, A Way Out es lo nuevo de los
-                creadores de Brothers:
-                A Tale
-                of Two Sons. Aunque ya se dejó ver en The Game Awards 2016, el juego de Hazelight se ha convertido
-                en uno de
-                los títulos más esperados del 2018 tras su aparición durante la conferencia de EA en la feria
-                angelina de
-                videojuegos. Tal y como declaró el vicepresidente ejecutivo de la compañía entonces, A Way Out nos
-                sorprenderá gracias a su innovador modo de juego cooperativo y a la forma en la que cuenta una
-                historia
-                emocionante a través de dos personajes. A partir del 23 de marzo podremos disfrutar de él en PS4,
-                Xbox One y
-                PC.
-              </p>
-            </div>
-          </div>
-          <h2>Valor del juego $ 10.000</h2>
-          <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
-
         </div>
       </div>
+    
+  
+      {% endfor %}
+    
+  </div>
+</div>
+<footer>
 
-    </div>
-    <footer>
+  <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
 
-      <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
-
-    </footer>
-
+</footer>
 {% endblock %}

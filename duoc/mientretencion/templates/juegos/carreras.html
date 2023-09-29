@@ -1,83 +1,35 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block css %}
-{% endblock %}
 
 
 {% block contenido %}
-
-  <br>
-  <h1>CARRERAS</h1>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-6">
+<h1>Juegos CARRERAS</h1>
+<div class="container">
+  <div class="row">
+    
+      {% for juego in juegos_carreras %}
+ 
+    
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
         <div class="card">
-          <img src="{% static '/imagenes/carreras1.png' %}" class="card-img-top" alt="Gran Turismo 7" class="img-fluid">
+          <a href= "{% url 'juegos_show' id=juego.id %}">
+          <img src="{{ juego.imagen.url }}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h2 class="card-title">Gran Turismo 7</h2>
-
-            <p class="card-text">La saga Gran Turismo es una de las más míticas y queridas por los
-              jugadores. Después de una entrega
-              centrada
-              principalmente en la competición online, Polyphony Digital echó la vista atrás para ofrecer
-              un juego
-              al
-              estilo más clásico, con modo campaña donde deberemos escalar en la competición desde el
-              nivel más
-              bajo y con
-              un vehículo de segunda mano. Por supuesto trae las opciones de tunning para poner a punto el
-              motor,
-              con
-              cientos de piezas, misiones, licencias de conducir y todo lo que podríamos esperar de una
-              auténtico
-              GT al
-              que suma muchas de las mejoras vistas en GT Sport, por ejemplo la personalización estética y
-              la
-              fotografía
-              en Scapes
-            </p>
-            <h2>Valor del juego $ 10.000</h2>
-            <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
+            <h2 class="card-title"> {{juego.nombre}} </h2>
+            </a>
+            <p class="card-text">{{ juego.descripcion }}</p>
           </div>
         </div>
       </div>
-
-      <div class="col-12 col-sm-6 col-md-6">
-        <div class="card">
-          <img src="{% static '/imagenes/carreras2.png' %}" class="card-img-top" alt="WRC 10" class="img-fluid">
-          <div class="card-body">
-            <h2 class="card-title">WRC 10 FIA World Rally Championship</h2>
-
-            <p class="card-text">KT Games continúa mejorando lentamente su famosa serie de simuladores de
-              rally y WRC 10 puede
-              presumir de ser
-              un título realmente completo, que celebra los 50 años del campeonato. Ofrece nuevos
-              contenidos y la
-              posibilidad de revivir los momentos más intensos desde 1973 hasta hoy. El modo Historia de
-              WRC 10
-              pone a
-              prueba tus habilidades como piloto a través de 19 eventos históricos que requieren una
-              adaptación a
-              las
-              condiciones de la competición en cada periodo histórico. Equipos actualizados, 120 etapas
-              especiales, 4
-              nuevos rallies de 2021 -Estonia, Croacia, Bélgica y España- y 6 rallies históricos, entre
-              ellos la
-              Acrópolis, San Remo, Alemania y Argentina.
-            </p>
-            <h2>Valor del juego $ 10.000</h2>
-            <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+  
+      {% endfor %}
+    
   </div>
-  <footer>
+</div>
+<footer>
 
-    <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
+  <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
 
-  </footer>
-
+</footer>
 {% endblock %}

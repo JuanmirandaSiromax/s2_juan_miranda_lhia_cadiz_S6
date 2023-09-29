@@ -1,60 +1,37 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block css %}
-{% endblock %}
 
 
 {% block contenido %}
-  <br>
-  <h1>AVENTURA</h1>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-6">
+<h1>Juegos AVENTURA</h1>
+<div class="container">
+  <div class="row">
+    
+      {% for juego in juegos_aventura %}
+ 
+    
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
         <div class="card">
-          <img src="{% static '/imagenes/aventura1.png' %}" class="card-img-top" alt="The legend of Zelda" class="img-fluid">
+          <a href= "{% url 'juegos_show' id=juego.id %}">
+          <img src="{{ juego.imagen.url }}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h2 class="card-title">The legend of Zelda</h2>
+            <h2 class="card-title"> {{juego.nombre}} </h2>
+            </a>
+            <p class="card-text">{{ juego.descripcion }}</p>
 
-            <p class="card-text">Legend of Zelda, en sus múltiples ediciones, se ha convertido en la saga de juegos de
-              aventura por
-              excelencia
-            </p>
-            <br>
-            <h2>Valor del juego $ 10.000</h2>
-            <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
-          </div>
-        </div>
-        <br>
-
-      </div>
-      <div class="col-12 col-sm-6 col-md-6">
-        <div class="card">
-          <img src="{% static '/imagenes/aventura2.png' %}" class="card-img-top" alt="Mario Bros" class="img-fluid">
-          <div class="card-body">
-            <h2 class="card-title">Mario Bros</h2>
-
-            <p class="card-text">La saga de Mario Bros. Según nuestro criterio, este simpático personaje ha sido desde
-              siempre uno de
-              lo más
-              icónicos y reconocidos mundialmente. ¿Quién no conoce a Mario, la verdad? Además, según Gamesradar,
-              y hasta
-              la misma Nintento, Mario ocupa el primer puesto en el ranking de popularidad de personajes de
-              videojuegos.
-            </p>
-            <h2>Valor del juego $ 10.000</h2>
-            <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
           </div>
         </div>
       </div>
-    </div>
+    
+  
+      {% endfor %}
+    
   </div>
+</div>
+<footer>
 
-  <footer>
+  <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
 
-    <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
-
-  </footer>
+</footer>
 {% endblock %}
 

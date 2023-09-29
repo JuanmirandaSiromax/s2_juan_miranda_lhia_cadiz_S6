@@ -4,7 +4,10 @@
 {% endblock %}
 
 
+
 {% block contenido %}
+
+
 <h1>listado de Juegos - {{ perfil }}</h1>
 
 <div class = "container">
@@ -12,8 +15,6 @@
             <a href="{% url 'crear_juego' %}" class="btn btn-primary">Crear Nuevo Juego</a>
             
         {% endif %}
-        <a href="{% url 'editar_datos' %}" class="btn btn-primary">Editar datos Usuario</a>
-        <a href="{% url 'index' %}" class="btn btn-dark">Cerrar Sesión</a>
         
     <div class= "row">
         {% if messages %}

@@ -1,75 +1,36 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block css %}
-{% endblock %}
 
 
 {% block contenido %}
-
-    <h1>SUPERVIVENCIA</h1>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-6">
-                <div class="card">
-                    <img src="{% static '/imagenes/supervivencia1.png' %}" class="card-img-top" alt="Conan Exiles" class="img-fluid">
-                    <div class="card-body">
-                        <h2 class="card-title">Conan Exiles</h2>
-
-                        <p class="card-text">Pocos juegos de supervivencia están ambientados en mundos que derivan de
-                            obras culturales aparecidas en la
-                            literatura o el cine. Uno de ellos es Conan Exiles, la última obra producida por Funcom que
-                            se ha convertido
-                            en todo un éxito comercial. Sobrevive en las tierras de Hyboria controlando a tu avatar en
-                            uno de los mundos
-                            más duros y menos agradecidos con aquellos jugadores que no son capaces de mantener la
-                            intensidad de las
-                            partidas.
-                        </p>
-                        <h2>Valor del juego $ 10.000</h2>
-                        <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-6">
-                <div class="card">
-                    <img src="{% static '/imagenes/supervivencia2.png' %}" class="card-img-top" alt="DayZ" class="img-fluid">
-                    <div class="card-body">
-                        <h2 class="card-title">DayZ</h2>
-
-                        <p class="card-text">De zombis va la cosa con DayZ, uno de los precursores en esto de los juegos
-                            de supervivencia
-                            multijugador en
-                            territorio de infectados. Sus partidas pueden tenernos atrapados durante horas mientras
-                            tratamos de
-                            sobrevivir tanto a los muertos vivientes como a las acciones de otros jugadores. Es un juego
-                            que nos
-                            enseña
-                            a no fiarnos de nadie en el multijugador, una lección que aprendemos rápido cuando llevamos
-                            un par
-                            de horas
-                            jugadas.
-                        </p>
-                        <h2>Valor del juego $ 10.000</h2>
-                        <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
-                    </div>
-                </div>
-            </div>
+<h1>Juegos SUPERVIVENCIA</h1>
+<div class="container">
+  <div class="row">
+    
+      {% for juego in juegos_supervivencia %}
+ 
+    
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <a href= "{% url 'juegos_show' id=juego.id %}">
+          <img src="{{ juego.imagen.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title"> {{juego.nombre}} </h2>
+            </a>
+            <p class="card-text">{{ juego.descripcion }}</p>
+          </div>
         </div>
-    </div>
+      </div>
+    
+  
+      {% endfor %}
+    
+  </div>
+</div>
+<footer>
 
-    <footer>
+  <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
 
-        <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
-
-    </footer>
+</footer>
 {% endblock %}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>

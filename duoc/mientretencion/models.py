@@ -9,7 +9,7 @@ class Categoria(models.Model):
         return self.nombre
 
 class Juego(models.Model):
-    codigo_isbn = models.CharField(max_length=200, unique=True)
+    codigo= models.CharField(max_length=200, unique=True)
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField(null=True, blank=True)
     imagen = models.ImageField(upload_to='juegos/' , null=True , blank=True)
@@ -19,7 +19,7 @@ class Juego(models.Model):
         return self.get_code_name()
 
     def get_code_name(self):
-        return f" ISBN: {self.codigo_isbn} - {self.nombre}"
+        return f" INF: {self.codigo} - {self.nombre}"
 
 class UserProfile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
@@ -27,3 +27,4 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username + ' - ' + self.role
+    

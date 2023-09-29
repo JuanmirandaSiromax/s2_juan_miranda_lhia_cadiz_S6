@@ -6,7 +6,7 @@
 
 {% block contenido %}
 
-<h1> Editar Usuario {{ user.username }}</h1>
+<h1> Editar Usuario {{ usuario.username}}</h1>
 <br>
 <br>
 <br>
@@ -27,7 +27,7 @@
                 <div class="col-12 mb-3">
                     <label for="" class="form-label"> Nombre Completo </label>
                     <input type="text" class="form-control" name="first_name" id="first_name"
-                        placeholder="Ingrese Nombre Completo">
+                        placeholder="{{usuario.first_name}}">
                     <small class="text-danger" id="nombre-error"> </small>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="col-12 mb-3">
                     <label for="" class="form-label"> Nombre de Usuario </label>
                     <input type="text" class="form-control" name="username" id="username"
-                        placeholder="Ingrese Nombre de Usuario">
+                        placeholder="{{usuario.username}}">
                     <small class="text-danger" id="NombreUsuario-error"> </small>
                 
                 </div>
@@ -51,26 +51,33 @@
                 </div>
                 <div class="col-6 mb-3">
                     <label for="" class="form-label"> Confirme Contraseña </label>
-                    <input type="text" class="form-control" name="last_name" id="last_name"
+                    <input type="text" class="form-control" name="password2" id="password2"
                         placeholder="Debe Ser igual A Contraseña">
                     
                 </div>
-                {% if password.value == last_name.value%}
+                {% if password.value == password2.value%}
                     
-
                     <div class="col-6 mb-3">
                         <label for="" class="form-label"> Ingrese Correo Electronico </label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="{{user.email}}">
                         <small class="text-danger" id="Correo-error"> </small>
                     </div>
-
+                    <div class="col-6 mb-3">
+                        <label for="role">Rol:</label>
+                        <select id="role" name="role" class="form-control">
+                        <option value="admin" {% if user_profile.role == 'admin' %}selected{% endif %}>Administrador</option>
+                        <option value="cliente" {% if user_profile.role == 'cliente' %}selected{% endif %}>Cliente</option>
+                              
+                            </select>
+                    </div>
                     <center>
                         <div class="d-grid" class="mb-3">
                             <div class="container">
                                 <div class="row justify-content-center">
-                                    <br>
+                                <br>
                                 <button type="submit" class="boton2">Registrarse</button>
                                 <button type="reset" class="boton2">Limpiar</button>
+                                <a href="{% url 'listado_usuarios' %}" class="boton2">Volver atras</a>
                                 <br>
                 {% endif %}  
                             </div>

@@ -7,10 +7,9 @@
 
 {% block contenido %}
 
-
-<h1>Juegos {{ juego.nombre }}</h1>
-
 <center>
+<h1>Juegos {{ juego.nombre }}</h1>
+<br>
   <div class="container">
       <div class="col-12 col-sm-6 col-md-6">
         <div class="card-header">
@@ -29,5 +28,11 @@
     <a href="{% url 'compra' %}"  class="boton">Añadir a Carrito</a>
     </div>
   </center>
+  
+<footer>
+
+  <h5> @Copyright Lhia Cadiz /Juan Miranda </h5>
+  
+</footer>
 {% endblock %}
 
